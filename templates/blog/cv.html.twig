@@ -1,0 +1,336 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon CV - Portfolio R&T{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .cv-container {
+        background: #fff;
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        position: relative;
+        box-sizing: border-box;
+        overflow: hidden;
+        page-break-inside: avoid;
+    }
+    
+    @media print {
+        .cv-container {
+            width: 210mm;
+            height: 297mm;
+            overflow: hidden;
+        }
+    }
+
+    .profile-section {
+        background: linear-gradient(135deg, #2193b0, #6dd5ed);
+        padding: 2rem;
+        color: white;
+    }
+
+    .skill-progress {
+        height: 8px;
+        margin-top: 8px;
+        background: #e9ecef;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .skill-progress .progress-bar {
+        background: linear-gradient(90deg, #2193b0, #6dd5ed);
+        transition: width 1.5s ease-in-out;
+    }
+
+    .experience-item, .formation-item {
+        border-left: 3px solid #2193b0;
+        padding-left: 20px;
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .experience-item::before, .formation-item::before {
+        content: '';
+        position: absolute;
+        left: -9px;
+        top: 0;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #2193b0;
+    }
+
+    .tech-badge {
+        background: linear-gradient(135deg, #2193b0, #6dd5ed);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin: 0 5px 8px 0;
+        display: inline-block;
+        transition: transform 0.2s;
+    }
+
+    .tech-badge:hover {
+        transform: translateY(-2px);
+    }
+
+    .download-cv-btn {
+        background: linear-gradient(135deg, #2193b0, #6dd5ed);
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 25px;
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+
+    .download-cv-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(33, 147, 176, 0.3);
+    }
+
+    .section-title {
+        color: #2193b0;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="cv-container">
+        <!-- En-tête du CV -->
+        <div class="profile-section text-center text-md-start">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <h1 class="h3">Lucas DEL CERRO</h1>
+                    <p class="mb-0">Futur Ingénieur en Réseaux et Télécommunications</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="ps-md-4">
+                        <h2 class="h4 mb-3">À propos de moi</h2>
+                        <p class="mb-4">
+                            Étudiant en BUT Réseaux & Télécommunications, je suis passionné par les nouvelles technologies et à la recherche d'une alternance pour développer mes compétences.
+                        </p>
+                        <div class="contact-info">
+                            <p class="mb-2"><i class="fas fa-envelope"></i> lucas.delcerro27@gmail.com</p>
+                            <p class="mb-2"><i class="fas fa-map-marker-alt"></i> Lyon, France</p>
+                            <p class="mb-0"><i class="fab fa-github"></i> github.com/LB69200</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenu principal du CV -->
+        <div class="p-4">
+            <!-- Section Compétences -->
+            <section class="mb-5">
+                <h3 class="section-title">
+                    <i class="fas fa-code me-2"></i>Compétences Techniques
+                </h3>
+                <div class="row">
+                    <!-- Compétences Techniques -->
+                    <div class="col-md-6">
+                        <div class="skill-category">
+                            <h4 class="h6 mb-3">Compétences Techniques</h4>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>TCP/IP</span>
+                                    <small>90%</small>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Python</span>
+                                    <small>85%</small>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>HTML/CSS</span>
+                                    <small>80%</small>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>C</span>
+                                    <small>75%</small>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Compétences Linguistiques -->
+                    <div class="col-md-6">
+                        <div class="skill-category">
+                            <h4 class="h6 mb-3">Compétences Linguistiques</h4>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Anglais</span>
+                                    <small>80%</small>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Espagnol</span>
+                                    <small>80%</small>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Formation -->
+            <section class="mb-5">
+                <h3 class="section-title">
+                    <i class="fas fa-graduation-cap me-2"></i>Formation
+                </h3>
+                <div class="formation-item">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h4 class="h6 mb-0">BUT Réseaux & Télécommunications</h4>
+                        <span class="text-muted small">2023 - Présent</span>
+                    </div>
+                    <p class="text-muted mb-2">IUT - Université</p>
+                    <p class="mb-0">Spécialisation en Réseaux et Infrastructure</p>
+                </div>
+            </section>
+
+            <!-- Section Expérience -->
+            <section class="mb-5">
+                <h3 class="section-title">
+                    <i class="fas fa-briefcase me-2"></i>Expérience
+                </h3>
+                <div class="experience-item">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h4 class="h6 mb-0">Projet - Infrastructure Réseau</h4>
+                        <span class="text-muted small">2023</span>
+                    </div>
+                    <p class="text-muted mb-2">IUT</p>
+                    <p class="mb-3">Mise en place d'une infrastructure réseau complète incluant la configuration de VLANs et la sécurisation du réseau.</p>
+                    <div>
+                        <span class="tech-badge">VLANs</span>
+                        <span class="tech-badge">Routage</span>
+                        <span class="tech-badge">Sécurité</span>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h4 class="h6 mb-0">Employé de restauration rapide</h4>
+                        <span class="text-muted small">2023 - Présent</span>
+                    </div>
+                    <p class="text-muted mb-2">Week-ends</p>
+                    <p class="mb-3">Service client, travail en équipe, gestion du stress en période d'affluence.</p>
+                </div>
+                <div class="experience-item">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h4 class="h6 mb-0">Stage - Entreprise d'audiovisuel</h4>
+                        <span class="text-muted small">Stage de 3ème - 1 semaine</span>
+                    </div>
+                    <p class="mb-3">Découverte du monde professionnel et des métiers de l'audiovisuel.</p>
+                </div>
+            </section>
+
+            <!-- Bouton de téléchargement -->
+            <div class="text-center">
+                <button class="download-cv-btn" type="button">
+                    <i class="fas fa-download me-2"></i>Télécharger mon CV
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+    window.onload = function() {
+        const downloadBtn = document.querySelector('.download-cv-btn');
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', async function(e) {
+                e.preventDefault();
+                const element = document.querySelector('.cv-container');
+                
+                // Sauvegarde du style original
+                const originalStyle = element.style.cssText;
+                
+                // Ajuster temporairement le conteneur pour la capture
+                element.style.maxHeight = 'none';
+                element.style.height = 'auto';
+                element.style.overflow = 'visible';
+                
+                const opt = {
+                    margin: 10,
+                    filename: 'cv-lucas-del-cerro.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { 
+                        scale: 2,
+                        useCORS: true,
+                        logging: true,
+                        letterRendering: true,
+                        windowHeight: element.scrollHeight + 20,
+                        scrollY: 0,
+                        width: element.scrollWidth,
+                        height: element.scrollHeight
+                    },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+
+                try {
+                    await html2pdf().from(element).set(opt).save();
+                } finally {
+                    // Restaurer le style original
+                    element.style.cssText = originalStyle;
+                }
+            });
+        }
+    };
+
+    // Animation des barres de compétences
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBars = entry.target.querySelectorAll('.progress-bar');
+                progressBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            }
+        });
+    });
+
+    document.querySelectorAll('.skill-category').forEach(category => {
+        observer.observe(category);
+    });
+</script>
+{% endblock %}

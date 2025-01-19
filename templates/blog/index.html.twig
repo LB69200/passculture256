@@ -1,0 +1,170 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ personal.name }} - Portfolio R&T{% endblock %}
+
+{% block body %}
+    {# Hero Section with Parallax Effect #}
+    <section class="hero-section position-relative overflow-hidden mb-5" style="min-height: 80vh;">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold mb-4">
+                        Hello, I'm <span class="text-gradient">{{ personal.name }}</span>
+                    </h1>
+                    <p class="lead mb-4">{{ personal.title }}</p>
+                    <p class="text-muted mb-4">{{ personal.description }}</p>
+                    
+                    {# CTA Buttons #}
+                    <div class="d-flex gap-3 mb-5">
+                        <a href="{{ path('app_cv') }}" class="btn btn-custom">
+                            <i class="fas fa-file-alt me-2"></i>View CV
+                        </a>
+                        <a href="{{ path('app_portfolio') }}" class="btn btn-outline-primary">
+                            <i class="fas fa-project-diagram me-2"></i>Projects
+                        </a>
+                    </div>
+
+                    {# Social Links #}
+                    <div class="social-links">
+                        <a href="{{ personal.social.github }}" class="me-3 text-dark" target="_blank">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                        <a href="{{ personal.social.linkedin }}" class="me-3 text-primary" target="_blank">
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 position-relative" data-aos="fade-left">
+                    {# Animated Decorative Elements #}
+                    <div class="position-relative">
+                        <div class="tech-background position-absolute w-100 h-100">
+                            <div class="floating-icon" style="top: 20%; left: 10%;">
+                                <i class="fas fa-network-wired fa-2x text-primary"></i>
+                            </div>
+                            <div class="floating-icon" style="top: 40%; right: 15%;">
+                                <i class="fas fa-cloud fa-2x text-info"></i>
+                            </div>
+                            <div class="floating-icon" style="bottom: 30%; left: 20%;">
+                                <i class="fas fa-shield-alt fa-2x text-success"></i>
+                            </div>
+                        </div>
+                        
+                        {# Profile Card #}
+                        <div class="card profile-card shadow-lg">
+                            <div class="card-body p-4">
+                                <div class="text-center mb-4">
+                                    <img src="https://via.placeholder.com/150" alt="Profile" 
+                                         class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                                </div>
+                                
+                                {# Highlight Stats #}
+                                <div class="row g-3">
+                                    {% for highlight in personal.highlights %}
+                                        <div class="col-6">
+                                            <div class="p-3 rounded bg-light text-center">
+                                                <i class="fas fa-check-circle text-success mb-2"></i>
+                                                <p class="mb-0 small">{{ highlight }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# Know More Section #}
+    <section class="know-more-section mb-5" data-aos="fade-up">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h2 class="mb-3">Want to know more?</h2>
+                        <p class="text-muted mb-md-0">
+                            Discover my projects, skills, and professional journey through my detailed portfolio.
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <a href="{{ path('app_about') }}" class="btn btn-custom">
+                            <i class="fas fa-arrow-right me-2"></i>Explore More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# Custom CSS for this template #}
+    <style>
+        .text-gradient {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .floating-icon {
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        .tech-background {
+            z-index: -1;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating-icon:nth-child(1) { animation-delay: 0s; }
+        .floating-icon:nth-child(2) { animation-delay: 0.5s; }
+        .floating-icon:nth-child(3) { animation-delay: 1s; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: auto;
+                padding: 4rem 0;
+            }
+            
+            .profile-card {
+                margin-top: 3rem;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    // Parallax effect for decorative elements
+    document.addEventListener('mousemove', (e) => {
+        const icons = document.querySelectorAll('.floating-icon');
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        
+        icons.forEach((icon) => {
+            const moveX = (e.clientX - centerX) / 50;
+            const moveY = (e.clientY - centerY) / 50;
+            
+            icon.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    });
+</script>
+{% endblock %}

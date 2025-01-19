@@ -1,0 +1,210 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Portfolio - Projets et Réalisations{% endblock %}
+
+{% block body %}
+    {# Header Section #}
+    <section class="portfolio-header mb-5" data-aos="fade-up">
+        <div class="card bg-gradient text-white">
+            <div class="card-body p-5">
+                <h1 class="display-4 fw-bold mb-4">Portfolio</h1>
+                <p class="lead mb-0">Découvrez mes projets et réalisations dans le domaine des réseaux et télécommunications.</p>
+            </div>
+        </div>
+    </section>
+
+    {# Projects Section #}
+    <section class="mb-5">
+        <h2 class="h3 mb-4"><i class="fas fa-project-diagram me-2"></i>Mes Projets</h2>
+        <div class="row g-4">
+            {% for project in portfolio.projects %}
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                    <div class="card h-100 project-card">
+                        <div class="position-relative">
+                            <img src="{{ project.image }}" alt="{{ project.title }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                            <div class="project-overlay">
+                                <a href="{{ project.github }}" class="btn btn-light" target="_blank">
+                                    <i class="fab fa-github me-2"></i>Voir sur GitHub
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="h5 mb-3">{{ project.title }}</h3>
+                            <p class="text-muted mb-3">{{ project.description }}</p>
+                            <div class="technologies">
+                                {% for tech in project.technologies %}
+                                    <span class="badge bg-primary me-2 mb-2">{{ tech }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    {# Certifications Section #}
+    <section class="mb-5" data-aos="fade-up">
+        <h2 class="h3 mb-4"><i class="fas fa-certificate me-2"></i>Certifications</h2>
+        <div class="row g-4">
+            {% for cert in portfolio.certifications %}
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 certification-card">
+                        <div class="card-body text-center">
+                            <img src="{{ cert.icon }}" alt="{{ cert.name }}" class="mb-3" style="height: 60px;">
+                            <h3 class="h5 mb-2">{{ cert.name }}</h3>
+                            <p class="text-muted mb-2">{{ cert.issuer }}</p>
+                            <small class="text-primary">{{ cert.date }}</small>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    {# Skills Matrix #}
+    <section class="mb-5" data-aos="fade-up">
+        <div class="card">
+            <div class="card-header bg-transparent">
+                <h2 class="h4 mb-0"><i class="fas fa-chart-bar me-2"></i>Matrice de Compétences</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Domaine</th>
+                                <th scope="col">Technologies</th>
+                                <th scope="col">Niveau</th>
+                                <th scope="col">Projets Réalisés</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Réseaux</td>
+                                <td>
+                                    <span class="badge bg-primary me-1">TCP/IP</span>
+                                    <span class="badge bg-primary me-1">VLAN</span>
+                                    <span class="badge bg-primary">Routing</span>
+                                </td>
+                                <td>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                                    </div>
+                                </td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Sécurité</td>
+                                <td>
+                                    <span class="badge bg-primary me-1">Firewall</span>
+                                    <span class="badge bg-primary me-1">VPN</span>
+                                    <span class="badge bg-primary">IDS/IPS</span>
+                                </td>
+                                <td>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                                    </div>
+                                </td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Cloud</td>
+                                <td>
+                                    <span class="badge bg-primary me-1">AWS</span>
+                                    <span class="badge bg-primary me-1">Docker</span>
+                                    <span class="badge bg-primary">Kubernetes</span>
+                                </td>
+                                <td>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 75%"></div>
+                                    </div>
+                                </td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# Custom CSS #}
+    <style>
+        .bg-gradient {
+            background: linear-gradient(135deg, #007bff 0%, #00ff88 100%);
+        }
+
+        .project-card {
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .certification-card {
+            transition: all 0.3s ease;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress {
+            background-color: #e9ecef;
+            border-radius: 4px;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #007bff, #00ff88);
+            transition: width 1s ease-in-out;
+        }
+
+        .badge {
+            padding: 0.5em 1em;
+            font-weight: normal;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-header .display-4 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    // Animation des barres de progression
+    document.addEventListener('DOMContentLoaded', () => {
+        const progressBars = document.querySelectorAll('.progress-bar');
+        progressBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+                bar.style.width = width;
+            }, 100);
+        });
+    });
+</script>
+{% endblock %}

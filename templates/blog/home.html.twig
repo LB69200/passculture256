@@ -1,0 +1,247 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome - {{ personal.name }}{% endblock %}
+
+{% block body %}
+    {# Hero Section #}
+    <div class="hero-container" data-aos="fade-up">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <div class="card bg-gradient p-4">
+                    <div class="card-body">
+                        <h1 class="display-4 text-white fw-bold mb-4">
+                            Welcome to my Portfolio
+                        </h1>
+                        <h2 class="h4 text-white-75 mb-4">Networks & Telecommunications Student</h2>
+                        
+                        {# Typed Text Animation #}
+                        <div class="typed-container mb-4">
+                            <span id="typed-text" class="h5 text-white"></span>
+                        </div>
+
+                        <div class="mt-4">
+                            <a href="#skills" class="btn btn-light btn-lg me-3">
+                                <i class="fas fa-laptop-code me-2"></i>My Skills
+                            </a>
+                            <a href="{{ path('app_cv') }}" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-file-alt me-2"></i>My CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <img src="https://via.placeholder.com/150" alt="Profile" 
+                                 class="rounded-circle shadow-sm mb-3" 
+                                 style="width: 150px; height: 150px; object-fit: cover;">
+                            <h2 class="h3 mb-2">{{ personal.name }}</h2>
+                            <p class="text-muted">{{ personal.title }}</p>
+                            
+                            {# Social Links #}
+                            <div class="social-links mt-3">
+                                <a href="{{ personal.social.github }}" class="btn btn-outline-dark btn-sm me-2" target="_blank">
+                                    <i class="fab fa-github me-1"></i>GitHub
+                                </a>
+                                <a href="{{ personal.social.linkedin }}" class="btn btn-outline-primary btn-sm" target="_blank">
+                                    <i class="fab fa-linkedin me-1"></i>LinkedIn
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 text-center">
+                            {% for highlight in personal.highlights %}
+                                <div class="col-6">
+                                    <div class="p-3 rounded bg-light">
+                                        <i class="fas fa-check-circle text-success mb-2"></i>
+                                        <p class="small mb-0">{{ highlight }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Skills Section #}
+    <section id="skills" class="my-5" data-aos="fade-up">
+        <div class="card">
+            <div class="card-header bg-transparent border-0">
+                <h2 class="h3 mb-0">Technical Skills</h2>
+            </div>
+            <div class="card-body">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="skill-category">
+                            <h3 class="h5 mb-3">Networking</h3>
+                            <div class="progress mb-3" style="height: 10px;">
+                                <div class="progress-bar bg-primary" 
+                                     role="progressbar" 
+                                     style="width: 85%"
+                                     aria-valuenow="85" 
+                                     aria-valuemin="0" 
+                                     aria-valuemax="100">
+                                </div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-success me-2"></i>TCP/IP</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Routing & Switching</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Network Security</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="skill-category">
+                            <h3 class="h5 mb-3">Security</h3>
+                            <div class="progress mb-3" style="height: 10px;">
+                                <div class="progress-bar bg-info" 
+                                     role="progressbar" 
+                                     style="width: 80%"
+                                     aria-valuenow="80" 
+                                     aria-valuemin="0" 
+                                     aria-valuemax="100">
+                                </div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Firewalls</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>VPN</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Security Protocols</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="skill-category">
+                            <h3 class="h5 mb-3">Cloud & DevOps</h3>
+                            <div class="progress mb-3" style="height: 10px;">
+                                <div class="progress-bar bg-success" 
+                                     role="progressbar" 
+                                     style="width: 75%"
+                                     aria-valuenow="75" 
+                                     aria-valuemin="0" 
+                                     aria-valuemax="100">
+                                </div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-success me-2"></i>AWS</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Docker</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>CI/CD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# "To Learn More" Section #}
+    <section class="my-5" data-aos="fade-up">
+        <div class="card bg-dark text-white">
+            <div class="card-body p-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h2>Want to Learn More?</h2>
+                        <p class="lead mb-lg-0">
+                            Discover my projects, experiences, and achievements in my detailed portfolio.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="{{ path('app_about') }}" class="btn btn-light btn-lg">
+                            <i class="fas fa-arrow-right me-2"></i>Explore More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# Custom CSS #}
+    <style>
+        .bg-gradient {
+            background: linear-gradient(135deg, #007bff 0%, #00ff88 100%);
+        }
+        
+        .hero-container {
+            margin-bottom: 4rem;
+        }
+
+        .skill-category {
+            position: relative;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .progress {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            transition: width 1.5s ease;
+        }
+
+        .typed-container {
+            min-height: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-container {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    // Typed.js initialization
+    new Typed('#typed-text', {
+        strings: [
+            'Specialized in Network Security',
+            'Passionate about Cloud Computing',
+            'Experienced in Infrastructure Management',
+            'Always Learning and Growing'
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 1500,
+        loop: true
+    });
+
+    // Animate progress bars on scroll
+    const animateProgressBars = () => {
+        const progressBars = document.querySelectorAll('.progress-bar');
+        progressBars.forEach(bar => {
+            const value = bar.getAttribute('aria-valuenow');
+            bar.style.width = value + '%';
+        });
+    };
+
+    // Initialize progress bars animation when section is visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateProgressBars();
+            }
+        });
+    });
+
+    document.querySelector('#skills').forEach(section => {
+        observer.observe(section);
+    });
+</script>
+{% endblock %}
