@@ -95,9 +95,9 @@ class BlogController extends AbstractController
         return $this->render('blog/portfolio.html.twig', [
             'portfolio' => [
                 'iframes' => [
-                    'https://docs.google.com/document/d/XXXXX1/preview', // Infrastructure Réseau
-                    'https://docs.google.com/document/d/XXXXX2/preview', // Sécurité Réseau
-                    'https://docs.google.com/document/d/XXXXX3/preview', // Développement Python
+                    'https://docs.google.com/document/d/1vuanJZPD9m4ziaPxDfs_zI6k9vFyIJTLStWX9RTKnJk/edit?usp=sharing', // Infrastructure Réseau
+                    'https://docs.google.com/document/d/1pvNA1R1BIGL5sulIPTvcvqYpZIKO6sORVS5ZyKHLQGA/edit?usp=sharing', // Architecture Web
+                    'https://docs.google.com/document/d/1nmI6PXr_xS6UY_UiPip3NLSnHkCtNqxoJAxCiQD8PeY/edit?usp=sharing', // Développement Pytho
                     'https://docs.google.com/document/d/XXXXX4/preview', // Cloud Computing
                     'https://docs.google.com/document/d/XXXXX5/preview'  // Virtualisation
                 ]

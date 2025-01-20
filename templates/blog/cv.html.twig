@@ -96,6 +96,19 @@
         font-weight: 600;
     }
 
+    .download-form {
+        max-width: 400px;
+        margin: 0 auto 20px auto;
+    }
+
+    .form-control {
+        margin-bottom: 15px;
+        padding: 8px;
+        border: 1px solid #2193b0;
+        border-radius: 4px;
+        width: 100%;
+    }
+
     * {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
@@ -258,11 +271,16 @@
                 </div>
             </section>
 
-            <!-- Bouton de téléchargement -->
-            <div class="text-center">
-                <button class="download-cv-btn" type="button">
-                    <i class="fas fa-download me-2"></i>Télécharger mon CV
-                </button>
+            <!-- Formulaire de téléchargement -->
+            <div class="download-form">
+                <form id="downloadForm" class="mb-4">
+                    <input type="text" name="name" placeholder="Votre nom" class="form-control" required>
+                    <input type="email" name="email" placeholder="Votre email" class="form-control" required>
+                    <input type="text" name="company" placeholder="Nom de l'entreprise" class="form-control" required>
+                    <button type="submit" class="download-cv-btn w-100">
+                        <i class="fas fa-download me-2"></i>Télécharger mon CV
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -273,14 +291,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script>
     window.onload = function() {
-        const downloadBtn = document.querySelector('.download-cv-btn');
-        if (downloadBtn) {
-            downloadBtn.addEventListener('click', async function(e) {
+        const downloadForm = document.getElementById('downloadForm');
+        
+        if (downloadForm) {
+            downloadForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 const element = document.querySelector('.cv-container');
                 
                 // Sauvegarde du style original
                 const originalStyle = element.style.cssText;
+                
+                // Masquer le formulaire pour le PDF
+                const form = document.querySelector('.download-form');
+                form.style.display = 'none';
                 
                 // Ajuster temporairement le conteneur pour la capture
                 element.style.maxHeight = 'none';
@@ -307,8 +330,9 @@
                 try {
                     await html2pdf().from(element).set(opt).save();
                 } finally {
-                    // Restaurer le style original
+                    // Restaurer le style original et réafficher le formulaire
                     element.style.cssText = originalStyle;
+                    form.style.display = 'block';
                 }
             });
         }
