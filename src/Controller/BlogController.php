@@ -19,8 +19,7 @@ class BlogController extends AbstractController
                 'description' => 'Passionate about cybersecurity and cloud technologies',
                 'highlights' => [
                     'Cybersecurity enthusiast',
-                    'Network specialist',
-                    'Cloud computing'
+                    'Network ',
                 ],
                 'social' => [
                     'github' => 'https://github.com/LB69200',
@@ -47,16 +46,6 @@ class BlogController extends AbstractController
                             'icon' => 'fas fa-shield-alt',
                             'description' => 'Intérêt marqué pour la cybersécurité et la protection des infrastructures réseau.'
                         ],
-                        [
-                            'name' => 'Administration Système',
-                            'icon' => 'fas fa-server',
-                            'description' => 'Configuration et maintenance des systèmes Linux et Windows Server.'
-                        ],
-                        [
-                            'name' => 'Cloud Computing',
-                            'icon' => 'fas fa-cloud',
-                            'description' => 'Exploration des technologies cloud et des services AWS.'
-                        ]
                     ]
                 ],
                 [
@@ -66,11 +55,6 @@ class BlogController extends AbstractController
                             'name' => 'Apprentissage Continu',
                             'icon' => 'fas fa-book',
                             'description' => 'Toujours en quête de nouvelles connaissances et de perfectionnement technique.'
-                        ],
-                        [
-                            'name' => 'Projets Open Source',
-                            'icon' => 'fas fa-code-branch',
-                            'description' => 'Contribution et participation active à la communauté open source.'
                         ],
                         [
                             'name' => 'Résolution de Problèmes',
@@ -98,8 +82,8 @@ class BlogController extends AbstractController
                     'https://docs.google.com/document/d/1vuanJZPD9m4ziaPxDfs_zI6k9vFyIJTLStWX9RTKnJk/edit?usp=sharing', // Infrastructure Réseau
                     'https://docs.google.com/document/d/1pvNA1R1BIGL5sulIPTvcvqYpZIKO6sORVS5ZyKHLQGA/edit?usp=sharing', // Architecture Web
                     'https://docs.google.com/document/d/1nmI6PXr_xS6UY_UiPip3NLSnHkCtNqxoJAxCiQD8PeY/edit?usp=sharing', // Développement Pytho
-                    'https://docs.google.com/document/d/XXXXX4/preview', // Cloud Computing
-                    'https://docs.google.com/document/d/XXXXX5/preview'  // Virtualisation
+                    'https://docs.google.com/document/d/XXXXX4/preview', // A ajouter plus tard
+                    'https://docs.google.com/document/d/XXXXX5/preview'  // A ajouter plus tard
                 ]
             ]
         ]);
