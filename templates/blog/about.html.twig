@@ -5,10 +5,10 @@
 {% block body %}
     {# Banner Section #}
     <section class="banner mb-5" data-aos="fade-up">
-        <div class="card bg-gradient text-white">
+        <div class="card bg-gradient">
             <div class="card-body p-5">
-                <h1 class="display-4 fw-bold mb-4">À propos de moi</h1>
-                <p class="lead mb-0">Découvrez mes passions, mes centres d'intérêt et ce qui me motive dans le domaine des réseaux et télécommunications.</p>
+                <h1 class="display-4 fw-bold mb-4 text-dark">À propos de moi</h1>
+                <p class="lead mb-0 text-dark">Découvrez mes passions, mes centres d'intérêt et ce qui me motive dans le domaine des réseaux et télécommunications.</p>
             </div>
         </div>
     </section>
@@ -19,7 +19,7 @@
         <div class="col-md-6" data-aos="fade-right">
             <div class="card h-100">
                 <div class="card-header bg-transparent">
-                    <h2 class="h4 mb-0"><i class="fas fa-laptop-code me-2"></i>Intérêts Techniques</h2>
+                    <h2 class="h4 mb-0"><i class="fas fa-laptop-code me-2"></i>Technical Interests</h2>
                 </div>
                 <div class="card-body">
                     {% for interest in interests %}
@@ -45,7 +45,7 @@
         <div class="col-md-6" data-aos="fade-left">
             <div class="card h-100">
                 <div class="card-header bg-transparent">
-                    <h2 class="h4 mb-0"><i class="fas fa-user me-2"></i>Intérêts Personnels</h2>
+                    <h2 class="h4 mb-0"><i class="fas fa-user me-2"></i>Technical Interests</h2>
                 </div>
                 <div class="card-body">
                     {% for interest in interests %}
@@ -87,15 +87,16 @@
                         </div>
 
                         <div class="timeline-item" data-aos="fade-left">
-                            <div class="timeline-badge bg-success">
-                                <i class="fas fa-award"></i>
+                            <div class="timeline-badge bg-info">
+                                <i class="fas fa-school"></i>
                             </div>
                             <div class="timeline-content">
-                                <h3 class="h5 mb-2">Certification CCNA</h3>
-                                <p class="text-muted mb-2">2023</p>
-                                <p>Obtention de la certification Cisco CCNA.</p>
+                                <h3 class="h5 mb-2">BAC STI2D - Spécialité SIN</h3>
+                                <p class="text-muted mb-2">2021 - 2023</p>
+                                <p>Première et Terminale en Sciences et Technologies de l'Industrie et du Développement Durable, spécialité Systèmes d'Information et Numérique.</p>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>

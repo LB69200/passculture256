@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Welcome - {{ personal.name }}{% endblock %}
+{% block title %}Welcome - Lucas DEL CERRO{% endblock %}
 
 {% block body %}
     {# Hero Section #}
@@ -9,21 +9,21 @@
             <div class="col-lg-6">
                 <div class="card bg-gradient p-4">
                     <div class="card-body">
-                        <h1 class="display-4 text-white fw-bold mb-4">
+                        <h1 class="display-4 text-dark fw-bold mb-4">
                             Welcome to my Portfolio
                         </h1>
-                        <h2 class="h4 text-white-75 mb-4">Networks & Telecommunications Student</h2>
+                        <h2 class="h4 text-dark mb-4">Computer Science Student</h2>
                         
                         {# Typed Text Animation #}
                         <div class="typed-container mb-4">
-                            <span id="typed-text" class="h5 text-white"></span>
+                            <span id="typed-text" class="h5 text-dark"></span>
                         </div>
 
                         <div class="mt-4">
-                            <a href="#skills" class="btn btn-light btn-lg me-3">
+                            <a href="#skills" class="btn btn-dark btn-lg me-3">
                                 <i class="fas fa-laptop-code me-2"></i>My Skills
                             </a>
-                            <a href="{{ path('app_cv') }}" class="btn btn-outline-light btn-lg">
+                            <a href="{{ path('app_cv') }}" class="btn btn-outline-dark btn-lg">
                                 <i class="fas fa-file-alt me-2"></i>My CV
                             </a>
                         </div>
@@ -38,29 +38,30 @@
                             <img src="https://via.placeholder.com/150" alt="Profile" 
                                  class="rounded-circle shadow-sm mb-3" 
                                  style="width: 150px; height: 150px; object-fit: cover;">
-                            <h2 class="h3 mb-2">{{ personal.name }}</h2>
-                            <p class="text-muted">{{ personal.title }}</p>
+                            <h2 class="h3 mb-2 text-dark">Lucas DEL CERRO</h2>
+                            <p class="text-dark">Developer & Network Enthusiast</p>
                             
                             {# Social Links #}
                             <div class="social-links mt-3">
                                 <a href="{{ personal.social.github }}" class="btn btn-outline-dark btn-sm me-2" target="_blank">
                                     <i class="fab fa-github me-1"></i>GitHub
                                 </a>
-                                <a href="{{ personal.social.linkedin }}" class="btn btn-outline-primary btn-sm" target="_blank">
-                                    <i class="fab fa-linkedin me-1"></i>LinkedIn
-                                </a>
                             </div>
                         </div>
 
                         <div class="row g-3 text-center">
-                            {% for highlight in personal.highlights %}
-                                <div class="col-6">
-                                    <div class="p-3 rounded bg-light">
-                                        <i class="fas fa-check-circle text-success mb-2"></i>
-                                        <p class="small mb-0">{{ highlight }}</p>
-                                    </div>
+                            <div class="col-6">
+                                <div class="p-3 rounded bg-light">
+                                    <i class="fas fa-code text-dark mb-2"></i>
+                                    <p class="small mb-0 text-dark">Programming Enthusiast</p>
                                 </div>
-                            {% endfor %}
+                            </div>
+                            <div class="col-6">
+                                <div class="p-3 rounded bg-light">
+                                    <i class="fas fa-network-wired text-dark mb-2"></i>
+                                    <p class="small mb-0 text-dark">Network Basics</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -72,55 +73,15 @@
     <section id="skills" class="my-5" data-aos="fade-up">
         <div class="card">
             <div class="card-header bg-transparent border-0">
-                <h2 class="h3 mb-0">Technical Skills</h2>
+                <h2 class="h3 mb-0 text-dark">Technical Skills</h2>
             </div>
             <div class="card-body">
                 <div class="row g-4">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="skill-category">
-                            <h3 class="h5 mb-3">Networking</h3>
+                            <h3 class="h5 mb-3 text-dark">Development</h3>
                             <div class="progress mb-3" style="height: 10px;">
                                 <div class="progress-bar bg-primary" 
-                                     role="progressbar" 
-                                     style="width: 85%"
-                                     aria-valuenow="85" 
-                                     aria-valuemin="0" 
-                                     aria-valuemax="100">
-                                </div>
-                            </div>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check-circle text-success me-2"></i>TCP/IP</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i>Routing & Switching</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i>Network Security</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="skill-category">
-                            <h3 class="h5 mb-3">Security</h3>
-                            <div class="progress mb-3" style="height: 10px;">
-                                <div class="progress-bar bg-info" 
-                                     role="progressbar" 
-                                     style="width: 80%"
-                                     aria-valuenow="80" 
-                                     aria-valuemin="0" 
-                                     aria-valuemax="100">
-                                </div>
-                            </div>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check-circle text-success me-2"></i>Firewalls</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i>VPN</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i>Security Protocols</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="skill-category">
-                            <h3 class="h5 mb-3">Cloud & DevOps</h3>
-                            <div class="progress mb-3" style="height: 10px;">
-                                <div class="progress-bar bg-success" 
                                      role="progressbar" 
                                      style="width: 75%"
                                      aria-valuenow="75" 
@@ -129,9 +90,29 @@
                                 </div>
                             </div>
                             <ul class="list-unstyled">
-                                <li><i class="fas fa-check-circle text-success me-2"></i>AWS</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i>Docker</li>
-                                <li><i class="fas fa-check-circle text-success me-2"></i>CI/CD</li>
+                                <li><i class="fas fa-check-circle text-dark me-2"></i>Python</li>
+                                <li><i class="fas fa-check-circle text-dark me-2"></i>HTML/CSS</li>
+                                <li><i class="fas fa-check-circle text-dark me-2"></i>C Programming</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="skill-category">
+                            <h3 class="h5 mb-3 text-dark">Networking</h3>
+                            <div class="progress mb-3" style="height: 10px;">
+                                <div class="progress-bar bg-info" 
+                                     role="progressbar" 
+                                     style="width: 45%"
+                                     aria-valuenow="45" 
+                                     aria-valuemin="0" 
+                                     aria-valuemax="100">
+                                </div>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-dark me-2"></i>TCP/IP Basics</li>
+                                <li><i class="fas fa-check-circle text-dark me-2"></i>Network Configuration</li>
+                                <li><i class="fas fa-check-circle text-dark me-2"></i>Basic Security</li>
                             </ul>
                         </div>
                     </div>
@@ -142,12 +123,12 @@
 
     {# "To Learn More" Section #}
     <section class="my-5" data-aos="fade-up">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark">
             <div class="card-body p-5">
                 <div class="row align-items-center">
                     <div class="col-lg-8">
-                        <h2>Want to Learn More?</h2>
-                        <p class="lead mb-lg-0">
+                        <h2 class="text-white">Want to Learn More?</h2>
+                        <p class="lead mb-lg-0 text-white">
                             Discover my projects, experiences, and achievements in my detailed portfolio.
                         </p>
                     </div>
@@ -211,9 +192,9 @@
     // Typed.js initialization
     new Typed('#typed-text', {
         strings: [
-            'Specialized in Network Security',
-            'Passionate about Cloud Computing',
-            'Experienced in Infrastructure Management',
+            'Python Developer',
+            'C Programming Enthusiast',
+            'Web Development Beginner',
             'Always Learning and Growing'
         ],
         typeSpeed: 50,
