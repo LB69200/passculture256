@@ -65,10 +65,45 @@
                 </div>
             </div>
         </div>
+
+        {# Deuxième rangée de projets #}
+        <div class="row g-4 mt-4">
+            {# Projet 4 - Systèmes d'exploitation #}
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100 project-card">
+                    <div class="card-body text-center">
+                        <div class="icon-wrapper mb-3">
+                            <i class="fas fa-desktop fa-3x text-primary"></i>
+                        </div>
+                        <h3 class="h5 mb-3">Systèmes d'exploitation</h3>
+                        <p class="text-muted mb-4">Maîtrise des principes fondamentaux des OS</p>
+                        <a href="https://docs.google.com/document/d/1qW9jHZB5pJ7g68frAETx9rKFBh7SrXatmIGPN4XMO_U/edit?tab=t.0" target="_blank" class="btn btn-primary">
+                            Voir le Projet
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {# Projet 5 - Configuration réseau #}
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100 project-card">
+                    <div class="card-body text-center">
+                        <div class="icon-wrapper mb-3">
+                            <i class="fas fa-network-wired fa-3x text-primary"></i>
+                        </div>
+                        <h3 class="h5 mb-3">Configuration Réseau Avancée</h3>
+                        <p class="text-muted mb-4">Installation et configuration de postes clients avec VLANs</p>
+                        <a href="https://docs.google.com/document/d/1ISjGYet638i1DGBkx4KCWfh1nD86SYW7q4xolG-m7J0/edit?usp=sharing" target="_blank" class="btn btn-primary">
+                            Voir le Projet
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     {# Modals for iframes #}
-    {% for i in 1..5 %}
+    {% for i in 1..4 %}
         <div class="modal fade" id="modal{{ i }}" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">

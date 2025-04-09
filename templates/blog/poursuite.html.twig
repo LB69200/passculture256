@@ -1,0 +1,367 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Poursuite d'études en Cybersécurité - Portfolio{% endblock %}
+
+{% block body %}
+<section class="py-5">
+    <!-- Hero Section -->
+    <div class="container mb-5">
+        <div class="row align-items-center">
+            <div class="col-lg-12 animate-fade-up">
+                <h1 class="display-4 fw-bold mb-4">{{ cybersecurity.title }}</h1>
+                <p class="lead mb-4">{{ cybersecurity.description }}</p>
+                <div class="d-flex align-items-center">
+                    <a href="{{ path('app_cv') }}" class="btn btn-custom me-3">
+                        <i class="fas fa-file-alt me-2"></i>Voir mon CV
+                    </a>
+                    <a href="#formation" class="btn btn-outline-dark">
+                        <i class="fas fa-graduation-cap me-2"></i>Mon projet
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Résumé Section -->
+    <div class="container mb-5 p-5 bg-light rounded-3">
+        <div class="row">
+            <div class="col-12 animate-fade-up">
+                <h2 class="text-center mb-4 fw-bold">Ma Passion pour la Cybersécurité</h2>
+                <p class="lead text-center">
+                    Fasciné par le monde de la cybersécurité, j'ai découvert une véritable passion qui me pousse à vouloir me spécialiser dans ce domaine. Bien que débutant, mon enthousiasme et ma soif d'apprendre sont mes plus grands atouts. Mon parcours en R&T m'a permis d'entrevoir les possibilités passionnantes qu'offre la cybersécurité, et je suis déterminé à approfondir mes connaissances dans ce domaine. Ce qui me motive particulièrement, c'est le caractère dynamique et les défis constants qu'offre ce secteur. Je suis impatient de pouvoir développer mes compétences et de contribuer à la sécurité numérique.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Motivations Section -->
+    <div class="container mb-5">
+        <h2 class="text-center mb-5 fw-bold">Mes motivations</h2>
+        <p class="text-center mb-4">Ma première année en R&T m'a permis d'acquérir des bases solides en réseaux, systèmes et programmation, essentielles pour me spécialiser en sécurité.</p>
+        
+        <div class="row g-4">
+            {% for motivation in cybersecurity.motivations %}
+                <div class="col-md-4 animate-fade-up" style="animation-delay: {{ loop.index * 0.1 }}s;">
+                    <div class="card h-100 p-4 text-center">
+                        <div class="mb-4">
+                            <i class="{{ motivation.icon }} fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="card-title mb-3">{{ motivation.title }}</h4>
+                        <p class="card-text">{{ motivation.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Compétences Techniques Section -->
+    <div class="container mb-5 py-5 bg-light rounded-3">
+        <h2 class="text-center mb-5 fw-bold">Compétences Techniques</h2>
+        <p class="text-center mb-4">Ma première année en R&T m'a permis d'acquérir des bases solides en réseaux, systèmes et programmation, essentielles pour me spécialiser en sécurité.</p>
+        
+        <div class="row">
+            <div class="col-md-4 animate-fade-up">
+                <div class="card h-100 p-4">
+                    <h4 class="mb-4"><i class="fas fa-code me-2 text-primary"></i>Développement</h4>
+                    <div class="mb-2 text-warning">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Python
+                            <span class="badge bg-primary rounded-pill">Avancé</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            HTML/CSS
+                            <span class="badge bg-primary rounded-pill">Intermédiaire</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            SQL
+                            <span class="badge bg-primary rounded-pill">Bases</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            C
+                            <span class="badge bg-primary rounded-pill">Intermédiaire</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 animate-fade-up" style="animation-delay: 0.2s;">
+                <div class="card h-100 p-4">
+                    <h4 class="mb-4"><i class="fas fa-shield-alt me-2 text-primary"></i>Sécurité</h4>
+                    <div class="mb-2 text-warning">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Sécurisation d'infrastructure
+                            <span class="badge bg-primary rounded-pill">Notions</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            SSH
+                            <span class="badge bg-primary rounded-pill">Bases</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            OpenVPN
+                            <span class="badge bg-primary rounded-pill">Notions</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 animate-fade-up" style="animation-delay: 0.3s;">
+                <div class="card h-100 p-4">
+                    <h4 class="mb-4"><i class="fas fa-network-wired me-2 text-primary"></i>Réseaux</h4>
+                    <div class="mb-2 text-warning">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Configuration LAN (Switch Cisco, PKT...)
+                            <span class="badge bg-primary rounded-pill">Intermédiaire</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            NAT
+                            <span class="badge bg-primary rounded-pill">Bases</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            ACL
+                            <span class="badge bg-primary rounded-pill">Bases</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Centres d'Intérêt en Cybersécurité Section -->
+    <div class="container mb-5">
+        <h2 class="text-center mb-5 fw-bold">Centres d'Intérêt en Cybersécurité</h2>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card p-4">
+                    <p class="lead text-center mb-4">
+                        En tant que débutant passionné, je m'intéresse particulièrement à ces aspects de la cybersécurité :
+                    </p>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-shield-alt text-primary me-3"></i>
+                                <h5 class="mb-0">Sécurité des réseaux</h5>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-bug text-primary me-3"></i>
+                                <h5 class="mb-0">Tests d'intrusion</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-lock text-primary me-3"></i>
+                                <h5 class="mb-0">Cryptographie</h5>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-server text-primary me-3"></i>
+                                <h5 class="mb-0">Sécurité des systèmes</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projets Personnels Section -->
+    <div class="container mb-5">
+        <h2 class="text-center mb-5 fw-bold">Projets Personnels en Cours</h2>
+        
+        <div class="row g-4">
+            <div class="col-md-6 animate-fade-up">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Outil de Chiffrement de Fichiers</h4>
+                        <p class="card-text">Développement d'une application en Python utilisant la bibliothèque Fernet pour le chiffrement sécurisé de fichiers. L'objectif est de créer une interface utilisateur simple permettant de chiffrer et déchiffrer des fichiers en utilisant des algorithmes cryptographiques robustes.</p>
+                        <div class="badge bg-primary mb-3">En développement</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 animate-fade-up" style="animation-delay: 0.2s;">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Formation Continue en Cybersécurité</h4>
+                        <p class="card-text">Progression active sur les plateformes Hack The Box Academy et TryHackMe pour acquérir des compétences pratiques en cybersécurité. L'objectif est de participer à des CTF et d'obtenir les certifications HTB pour valider mes compétences.</p>
+                        <div class="badge bg-info mb-3">En cours</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projets Académiques Section -->
+    <div class="container mb-5 py-5 bg-light rounded-3">
+        <h2 class="text-center mb-5 fw-bold">Projets Académiques</h2>
+        
+        <div class="row g-4">
+            <div class="col-md-4 animate-fade-up">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Analyse de Trafic Réseau</h4>
+                        <div class="mb-2 text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <small class="text-muted ms-2">(Mon projet préféré!)</small>
+                        </div>
+                        <p class="card-text">Développement d'une solution complète pour analyser des fichiers tcpdump et détecter des activités suspectes (DDoS). Création d'un programme Python pour l'analyse automatisée et d'une interface web pour visualiser les résultats. Ce projet m'a permis d'approfondir mes connaissances en analyse de trafic réseau et en développement web.</p>
+                        <div class="d-flex gap-2">
+                            <a href="https://docs.google.com/presentation/d/1TDpPUYqXXhECj14EuyM_IsCzATdl88Az5WJrOvX1MVA/edit?slide=id.g35f391192_00#slide=id.g35f391192_00" target="_blank" class="btn btn-custom mt-3">
+                                <i class="fas fa-presentation me-2"></i>Voir la présentation
+                            </a>
+                            <a href="https://github.com/LB69200/SAE-105-REAL" target="_blank" class="btn btn-outline-primary mt-3">
+                                <i class="fab fa-github me-2"></i>Git du projet
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 animate-fade-up" style="animation-delay: 0.2s;">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Certification MOOC Cybersécurité</h4>
+                        <div class="mb-2 text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="card-text">Formation approfondie sur l'identification et la compréhension des vulnérabilités des systèmes informatiques. Cette formation m'a permis de renforcer mes connaissances en cybersécurité et d'acquérir une vision plus claire des enjeux du domaine.</p>
+                        <a href="https://imgur.com/a/DTu6HGO" target="_blank" class="btn btn-custom mt-3">Voir la certification</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 animate-fade-up" style="animation-delay: 0.3s;">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Configuration Réseau Local</h4>
+                        <div class="mb-2 text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="card-text">Création et configuration d'une infrastructure réseau pour une entreprise en expansion. Mise en place d'un réseau local sécurisé incluant la configuration SSH pour l'accès distant. Ce projet m'a permis de mettre en pratique mes compétences en réseaux et d'aborder les aspects de sécurisation.</p>
+                        <a href="https://docs.google.com/presentation/d/1wOfm4Jc17cxL9m-qXJEZoxKiUtgpdaHLMimM_fqanr4/edit?slide=id.g3606f1c2d_30#slide=id.g3606f1c2d_30" target="_blank" class="btn btn-custom mt-3">
+                            <i class="fas fa-desktop me-2"></i>Voir le projet
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Points Forts Section -->
+    <div class="container mb-5">
+        <h2 class="text-center mb-5 fw-bold">Mes Points Forts</h2>
+        
+        <div class="row g-4">
+            <div class="col-md-3 animate-fade-up">
+                <div class="card h-100 p-4 text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-fire fa-3x text-primary"></i>
+                    </div>
+                    <h4 class="card-title mb-2">Passionné</h4>
+                    <p class="card-text">Quand un sujet me passionne, je m'y investis pleinement et ma productivité est décuplée.</p>
+                </div>
+            </div>
+            <div class="col-md-3 animate-fade-up" style="animation-delay: 0.1s;">
+                <div class="card h-100 p-4 text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-shield-alt fa-3x text-primary"></i>
+                    </div>
+                    <h4 class="card-title mb-2">Rigoureux</h4>
+                    <p class="card-text">La sécurité exige une attention aux détails et une méthodologie rigoureuse que j'applique naturellement.</p>
+                </div>
+            </div>
+            <div class="col-md-3 animate-fade-up" style="animation-delay: 0.2s;">
+                <div class="card h-100 p-4 text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-puzzle-piece fa-3x text-primary"></i>
+                    </div>
+                    <h4 class="card-title mb-2">Résolution de problèmes</h4>
+                    <p class="card-text">Capable d'analyser méthodiquement les problèmes techniques et de trouver des solutions efficaces.</p>
+                </div>
+            </div>
+            <div class="col-md-3 animate-fade-up" style="animation-delay: 0.3s;">
+                <div class="card h-100 p-4 text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-book fa-3x text-primary"></i>
+                    </div>
+                    <h4 class="card-title mb-2">Apprentissage continu</h4>
+                    <p class="card-text">Toujours à l'affût des nouvelles technologies et menaces pour rester à jour dans ce domaine en constante évolution.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formation Section -->
+    <div id="formation" class="container mb-5 py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center animate-fade-up">
+                <h2 class="mb-4 fw-bold">Mes objectifs</h2>
+                <div class="card p-4 mb-4">
+                    <h5 class="mb-3">À Court Terme</h5>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Réussir ma premiere année de BUT et obtenir la spécialité cybersécurité</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Décrocher une alternance en réseaux pour acquérir une expérience professionnelle solide</li>
+                    </ul>
+                </div>
+                <div class="card p-4 mb-4">
+                    <h5 class="mb-3">À Moyen Terme</h5>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Approfondir mes connaissances en cybersécurité via des projets concrets</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Obtenir la certification CCNA pour valider mes compétences en réseaux</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Obtenir mon BUT Réseaux et Télécommunications</li>
+                    </ul>
+                </div>
+                <div class="card p-4 mb-4">
+                    <h5 class="mb-3">Mon Objectif Final</h5>
+                    <ul class="list-unstyled text-start">
+                        <li><i class="fas fa-star text-warning me-2"></i>Intégrer une école d'ingénieur en alternance spécialisée en cybersécurité</li>
+                        <li><i class="fas fa-star text-warning me-2"></i>Ou poursuivre en Master Cybersécurité selon les opportunités</li>
+                        <li><i class="fas fa-star text-warning me-2"></i>Passer des cerfications tel que la CEH ou autre</li>
+                    </ul>
+                </div>
+                <div class="mt-4 d-flex flex-wrap justify-content-center gap-3">
+                    <a href="{{ path('app_home') }}" class="btn btn-custom">
+                        <i class="fas fa-home me-2"></i>Accueil
+                    </a>
+                    <a href="{{ path('app_portfolio') }}" class="btn btn-custom">
+                        <i class="fas fa-folder me-2"></i>Portfolio
+                    </a>
+                    <a href="{{ path('app_cv') }}" class="btn btn-custom">
+                        <i class="fas fa-file-alt me-2"></i>CV
+                    </a>
+                    <a href="mailto:lucas.delcerro27@gmail.com" class="btn btn-custom">
+                        <i class="fas fa-envelope me-2"></i>Me contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

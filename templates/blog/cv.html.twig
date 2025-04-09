@@ -38,8 +38,26 @@
     }
 
     .skill-progress .progress-bar {
-        background: linear-gradient(90deg, #2193b0, #6dd5ed);
+        height: 100%;
+        width: 0;
+        background: #2193b0;
         transition: width 1.5s ease-in-out;
+    }
+
+    .skill-progress .progress-bar.excellent {
+        background: #28a745;
+    }
+
+    .skill-progress .progress-bar.good {
+        background: #2193b0;
+    }
+
+    .skill-progress .progress-bar.average {
+        background: #ffc107;
+    }
+
+    .skill-progress .progress-bar.basic {
+        background: #dc3545;
     }
 
     .experience-item, .formation-item {
@@ -158,10 +176,10 @@
                             <div class="mb-3">
                                 <div class="d-flex justify-content-between mb-1">
                                     <span>HTML/CSS</span>
-                                    <small>80%</small>
+                                    <small>90%</small>
                                 </div>
                                 <div class="skill-progress">
-                                    <div class="progress-bar" style="width: 90%"></div>
+                                    <div class="progress-bar excellent" data-width="90%"></div>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -170,7 +188,16 @@
                                     <small>80%</small>
                                 </div>
                                 <div class="skill-progress">
-                                    <div class="progress-bar" style="width: 85%"></div>
+                                    <div class="progress-bar good" data-width="80%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>TCP/IP</span>
+                                    <small>75%</small>
+                                </div>
+                                <div class="skill-progress">
+                                    <div class="progress-bar good" data-width="75%"></div>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -179,16 +206,7 @@
                                     <small>70%</small>
                                 </div>
                                 <div class="skill-progress">
-                                    <div class="progress-bar" style="width: 80%"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between mb-1">
-                                    <span>TCP/IP</span>
-                                    <small>65%</small>
-                                </div>
-                                <div class="skill-progress">
-                                    <div class="progress-bar" style="width: 75%"></div>
+                                    <div class="progress-bar average" data-width="70%"></div>
                                 </div>
                             </div>
                         </div>
@@ -204,7 +222,7 @@
                                     <small>90%</small>
                                 </div>
                                 <div class="skill-progress">
-                                    <div class="progress-bar" style="width: 80%"></div>
+                                    <div class="progress-bar excellent" data-width="90%"></div>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -213,7 +231,7 @@
                                     <small>80%</small>
                                 </div>
                                 <div class="skill-progress">
-                                    <div class="progress-bar" style="width: 80%"></div>
+                                    <div class="progress-bar good" data-width="80%"></div>
                                 </div>
                             </div>
                         </div>
@@ -336,26 +354,26 @@
                 }
             });
         }
-    };
 
-    // Animation des barres de compétences
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const progressBars = entry.target.querySelectorAll('.progress-bar');
-                progressBars.forEach(bar => {
-                    const width = bar.style.width;
-                    bar.style.width = '0';
-                    setTimeout(() => {
-                        bar.style.width = width;
-                    }, 100);
-                });
-            }
+        // Animation des barres de compétences
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.progress-bar');
+                    progressBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    });
+                }
+            });
         });
-    });
 
-    document.querySelectorAll('.skill-category').forEach(category => {
-        observer.observe(category);
-    });
+        document.querySelectorAll('.skill-category').forEach(category => {
+            observer.observe(category);
+        });
+    };
 </script>
 {% endblock %}
